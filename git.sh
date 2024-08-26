@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 
-if [USERID -ne o]
+if [$USERID -ne o]
 then
   echo "you need to be root user to excuite this script"
 
