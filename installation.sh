@@ -2,12 +2,13 @@
 
 USERID=$(id -u)
 
-if [$USERID -ne 0] 
+if [$USERID -ne 0]
 then
-  echo "you need to be root uesr to excute the script"
-fi 
+  echo "you need to be root user to excuite this script"
 
-yum update –y
+fi
+
+yum update -y
 if [$? -ne 0]
 then
   echo "updating yum is faliure"
