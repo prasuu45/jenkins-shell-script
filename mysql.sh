@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USREID=$(id -u)
-DATE=$ (date +%F)
+DATE=$(date +%F)
 log="mysql-${DATE}.log"
 
 R="\e[31m"
