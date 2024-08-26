@@ -4,17 +4,17 @@ USREID=$(id -u)
 DATE=$(date +%F)
 log="mysql-${DATE}.log"
 
-R="\e[31m"
-G="\e[32m"
-N="\e[0m"
+R="\u001b[41m"
+G="\u001b[42m"
+
 
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
-       echo "$2 is ....${R} failure ${N}"
+       echo "$2 is ....$R failure $N"
        exit 1
     else 
-      echo "$2 is .....${R} success ${N}"
+      echo "$2 is .....$G success $N"
     fi
 }
 VALIDATE $? "install git"
