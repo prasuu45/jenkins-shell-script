@@ -17,7 +17,7 @@ else
 fi
 
 wget -O /etc/yum.repos.d/jenkins.repo \
-    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    https://pkg.jenkins.io/redhat/jenkins.repo
 
 if [ $? -ne 0 ]
 then
@@ -26,7 +26,7 @@ else
   echo "adding jenkins repo success"
 fi
 
-rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
 
 if [ $? -ne 0 ]
 then
@@ -44,7 +44,7 @@ else
   echo "update is success"
 fi
 
-dnf install java-17-amazon-corretto -y
+dnf install java-11-amazon-corretto -y
 
 if [ $? -ne 0 ]
 then 
