@@ -19,7 +19,7 @@ fi
 wget -O /etc/yum.repos.d/jenkins.repo \
     https://pkg.jenkins.io/redhat-stable/jenkins.repo
 
-fi [$? -ne 0]
+if [$? -ne 0]
 then
   echo "adding jenkins repo failure"
 else
