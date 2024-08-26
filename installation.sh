@@ -27,6 +27,7 @@ else
 fi
 
 rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
 if [$? -ne 0]
 then
   echo "importing jenkins key is failure"
@@ -35,6 +36,7 @@ else
 fi
 
 yum upgrade
+
 if [$? -ne 0]
 then
   echo "update is failure"
