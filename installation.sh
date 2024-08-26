@@ -16,8 +16,7 @@ else
   echo "updating yum is success"
 fi
 
-wget -O /etc/yum.repos.d/jenkins.repo \
-    https://pkg.jenkins.io/redhat/jenkins.repo
+wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
 
 if [ $? -ne 0 ]
 then
@@ -26,7 +25,7 @@ else
   echo "adding jenkins repo success"
 fi
 
-rpm --import https://pkg.jenkins.io/redhat/jenkins.io-2023.key
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
 if [ $? -ne 0 ]
 then
@@ -44,11 +43,37 @@ else
   echo "update is success"
 fi
 
-dnf install java-11-amazon-corretto -y
+dnf install java-11-openjdk-devel
 
 if [ $? -ne 0 ]
 then 
-  echo "installation java 17 is failure"
+  echo "installation java 11 is failure"
 else
-  echo "installation java 17 is success"
+  echo "installation java 11 is success"
 fi
+
+dnf install jenkins
+if [ $? -ne 0 ]
+then
+  echo "install jenkins is faliure"
+else
+  echo "install jenkins is success"
+fi
+
+systemctl enable jenkins
+
+if [ $? -ne 0 ]
+then 
+  echo "enable jenkns is falilure"
+else
+  echo "enable jenkins is sucsess"
+fi
+
+systemctl start jenkins
+if [ $? -ne 0 ]
+then 
+  echo "start jenkins is failure"
+else
+  echo "start jenkins is success"
+fi
+
