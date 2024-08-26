@@ -1,8 +1,9 @@
 #!/bin/bash
 
 USERID=$(id -u)
-if [userid -ne 0]; then 
 
-echo ""you need to root user to execuite the exit script"
-
+if [$USERID -ne 0] 
+then
+  echo "you need to be root uesr to excute the script"
 fi 
+
