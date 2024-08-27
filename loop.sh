@@ -41,7 +41,7 @@ echo "script started excuiting at: $date" | tee -a $LOG_FILE
 
 CHECK_ROOT
 
-do 
+do
  dnf install $package &>>$LOG_FILE
    if [ $? -ne 0 ]
    then
