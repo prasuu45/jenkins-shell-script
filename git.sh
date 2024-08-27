@@ -1,9 +1,12 @@
 #!/bn/bash
 
 USERID=$(id -u)
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
 
 CHECK_ROOT(){
-  if [ $USERID -ne o ]
+  if [ $USERID -ne 0 ]
   then
        echo "please run this script with root user priveleges"
        exit 1
@@ -13,9 +16,10 @@ CHECK_ROOT(){
 VALIDATE(){
   if [ $? -ne 0 ]
   then
-      echo "$2 is ... failure"
+      echo "$2 is ...$R failure $N"
+      exit 1
   else
-      echo "$2 is ... success"
+      echo "$2 is ... $G success $N"
   fi
 }
 
