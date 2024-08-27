@@ -17,8 +17,7 @@ CHECK_ROOT(){
     then
        echo -e "$R please run tins scriipt in root user $N" | tee -a $LOG_FILE
        exit 1
-    fi
-    
+    fi   
 }
 
 VALIDATE (){
@@ -37,10 +36,16 @@ USAGE(){
 }
 
 
-echo "script started excuiting at: $date" | tee -a $LOG_FILE
+echo "script started excuiting at: $(date)" | tee -a $LOG_FILE
 
 CHECK_ROOT
 
+if [ $# -eq 0 ]
+then
+    USAGE
+fi
+
+for package in $@
 do
  dnf install $package &>>$LOG_FILE
    if [ $? -ne 0 ]
