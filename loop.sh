@@ -32,7 +32,7 @@ VALIDATE (){
 }
 
 USAGE(){
-    echo -e "$R USAGE :: $N sudo loop.sh package1 package2.. "
+    echo -e "$R USAGE :: $N sudo loop.sh package1 package2 package3.. "
     exit 1
 }
 
